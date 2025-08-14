@@ -1,0 +1,12 @@
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\bin\Debug\VeterinariaCompleto.exe.config
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\bin\Debug\VeterinariaCompleto.exe
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\bin\Debug\VeterinariaCompleto.pdb
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\obj\Debug\VeterinariaCompleto.csproj.AssemblyReference.cache
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\obj\Debug\VeterinariaCompleto.Form1.resources
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\obj\Debug\VeterinariaCompleto.Presentacion.resources
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\obj\Debug\VeterinariaCompleto.Properties.Resources.resources
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\obj\Debug\VeterinariaCompleto.csproj.GenerateResource.cache
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\obj\Debug\VeterinariaCompleto.csproj.CoreCompileInputs.cache
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\obj\Debug\VeterinariaCompleto.exe
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\obj\Debug\VeterinariaCompleto.pdb
+C:\Users\Maxi\source\repos\VeterinariaCompleto\VeterinariaCompleto\obj\Debug\VeterinariaCompleto.Datos.resources

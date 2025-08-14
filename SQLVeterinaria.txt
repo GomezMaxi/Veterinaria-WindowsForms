@@ -1,0 +1,179 @@
+USE [Veterinaria]
+GO
+set dateformat ymd
+/****** Object:  Table [dbo].[Animales]    Script Date: 17/6/2024 20:31:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Animales](
+	[IdAnimal] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](15) NOT NULL,
+	[IdTutor] [int] NOT NULL,
+	[FechaNac] [smalldatetime] NOT NULL,
+	[IdEspecie] [int] NOT NULL,
+	[Raza] [nvarchar](30) NOT NULL,
+	[Sexo] [nvarchar](1) NOT NULL,
+	[Activo] [bit] NOT NULL,
+ CONSTRAINT [PK_Animales] PRIMARY KEY CLUSTERED 
+(
+	[IdAnimal] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Doctores]    Script Date: 17/6/2024 20:31:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Doctores](
+	[IdDoctor] [int] IDENTITY(1,1) NOT NULL,
+	[Apellido] [nvarchar](30) NOT NULL,
+	[Nombre] [nvarchar](30) NOT NULL,
+ CONSTRAINT [PK_Doctores] PRIMARY KEY CLUSTERED 
+(
+	[IdDoctor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Especies]    Script Date: 17/6/2024 20:31:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Especies](
+	[IdEspecie] [int] IDENTITY(1,1) NOT NULL,
+	[Especie] [nvarchar](30) NOT NULL,
+ CONSTRAINT [PK_Especies] PRIMARY KEY CLUSTERED 
+(
+	[IdEspecie] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Intervenciones]    Script Date: 17/6/2024 20:31:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Intervenciones](
+	[IdAnimal] [int] NOT NULL,
+	[FechaHora] [smalldatetime] NOT NULL,
+	[Tipo] [nvarchar](15) NOT NULL,
+	[Descripcion] [nvarchar](250) NULL,
+	[IdDoctor] [int] NOT NULL,
+ CONSTRAINT [PK_Intervenciones] PRIMARY KEY CLUSTERED 
+(
+	[IdAnimal] ASC,
+	[FechaHora] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tutores]    Script Date: 17/6/2024 20:31:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tutores](
+	[IdTutor] [int] IDENTITY(1,1) NOT NULL,
+	[Apellido] [nvarchar](30) NOT NULL,
+	[Nombre] [nvarchar](30) NOT NULL,
+	[Domicilio] [nvarchar](50) NOT NULL,
+	[Cel] [nvarchar](15) NOT NULL,
+ CONSTRAINT [PK_Tutores] PRIMARY KEY CLUSTERED 
+(
+	[IdTutor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Animales] ON 
+GO
+INSERT [dbo].[Animales] ([IdAnimal], [Nombre], [IdTutor], [FechaNac], [IdEspecie], [Raza], [Sexo], [Activo]) VALUES (1, N'Rocco', 1, CAST(N'2023-05-10T00:00:00' AS SmallDateTime), 1, N'BullDog', N'M', 1)
+GO
+INSERT [dbo].[Animales] ([IdAnimal], [Nombre], [IdTutor], [FechaNac], [IdEspecie], [Raza], [Sexo], [Activo]) VALUES (2, N'Simba', 2, CAST(N'2024-05-08T00:00:00' AS SmallDateTime), 2, N'Angora', N'F', 1)
+GO
+INSERT [dbo].[Animales] ([IdAnimal], [Nombre], [IdTutor], [FechaNac], [IdEspecie], [Raza], [Sexo], [Activo]) VALUES (3, N'Sam', 1, CAST(N'2020-04-07T00:00:00' AS SmallDateTime), 1, N'Golden', N'M', 1)
+GO
+INSERT [dbo].[Animales] ([IdAnimal], [Nombre], [IdTutor], [FechaNac], [IdEspecie], [Raza], [Sexo], [Activo]) VALUES (4, N'Manu', 3, CAST(N'1990-03-02T00:00:00' AS SmallDateTime), 3, N'Tortuga Sulcata', N'M', 1)
+GO
+INSERT [dbo].[Animales] ([IdAnimal], [Nombre], [IdTutor], [FechaNac], [IdEspecie], [Raza], [Sexo], [Activo]) VALUES (5, N'Terry', 1, CAST(N'2020-04-11T00:00:00' AS SmallDateTime), 1, N'Boxer', N'M', 0)
+GO
+INSERT [dbo].[Animales] ([IdAnimal], [Nombre], [IdTutor], [FechaNac], [IdEspecie], [Raza], [Sexo], [Activo]) VALUES (6, N'Misha', 2, CAST(N'2019-02-06T00:00:00' AS SmallDateTime), 2, N'Siames', N'F', 1)
+GO
+INSERT [dbo].[Animales] ([IdAnimal], [Nombre], [IdTutor], [FechaNac], [IdEspecie], [Raza], [Sexo], [Activo]) VALUES (7, N'Felicia', 3, CAST(N'2021-03-01T00:00:00' AS SmallDateTime), 2, N'Birmano', N'F', 0)
+GO
+INSERT [dbo].[Animales] ([IdAnimal], [Nombre], [IdTutor], [FechaNac], [IdEspecie], [Raza], [Sexo], [Activo]) VALUES (8, N'Fria', 3, CAST(N'2020-05-09T00:00:00' AS SmallDateTime), 3, N'Iguana Overa', N'F', 1)
+GO
+SET IDENTITY_INSERT [dbo].[Animales] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Doctores] ON 
+GO
+INSERT [dbo].[Doctores] ([IdDoctor], [Apellido], [Nombre]) VALUES (1, N'Velazquez', N'Rodrigo')
+GO
+INSERT [dbo].[Doctores] ([IdDoctor], [Apellido], [Nombre]) VALUES (2, N'Garcia', N'Camila')
+GO
+SET IDENTITY_INSERT [dbo].[Doctores] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Especies] ON 
+GO
+INSERT [dbo].[Especies] ([IdEspecie], [Especie]) VALUES (1, N'Canino')
+GO
+INSERT [dbo].[Especies] ([IdEspecie], [Especie]) VALUES (2, N'Felino')
+GO
+INSERT [dbo].[Especies] ([IdEspecie], [Especie]) VALUES (3, N'Reptil')
+GO
+INSERT [dbo].[Especies] ([IdEspecie], [Especie]) VALUES (4, N'Ave')
+GO
+SET IDENTITY_INSERT [dbo].[Especies] OFF
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (1, CAST(N'2024-05-10T00:00:00' AS SmallDateTime), N'Cirugia', N'Fractura pierna trasera ', 1)
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (1, CAST(N'2024-05-11T00:00:00' AS SmallDateTime), N'Control', N'Post Quirurgico', 2)
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (1, CAST(N'2024-05-17T00:00:00' AS SmallDateTime), N'Vacuna', N'Contra la Rabia', 1)
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (1, CAST(N'2024-05-18T00:00:00' AS SmallDateTime), N'Control', N'Test por Parasitos', 1)
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (2, CAST(N'2024-05-11T00:00:00' AS SmallDateTime), N'Control', N'Fiebre', 2)
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (4, CAST(N'2024-05-12T00:00:00' AS SmallDateTime), N'Cirugia', N'Fractura Caparazon', 1)
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (4, CAST(N'2024-05-13T00:00:00' AS SmallDateTime), N'Control', N'Post Quirurgico', 2)
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (5, CAST(N'2024-05-11T00:00:00' AS SmallDateTime), N'Cirugia', N'Sutura Corte', 1)
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (6, CAST(N'2024-05-17T00:00:00' AS SmallDateTime), N'Vacuna', N'Quintuple', 2)
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (6, CAST(N'2024-05-18T00:00:00' AS SmallDateTime), N'Control', N'Decaimiento', 2)
+GO
+INSERT [dbo].[Intervenciones] ([IdAnimal], [FechaHora], [Tipo], [Descripcion], [IdDoctor]) VALUES (8, CAST(N'2024-05-19T00:00:00' AS SmallDateTime), N'Control', N'Micosis', 1)
+GO
+SET IDENTITY_INSERT [dbo].[Tutores] ON 
+GO
+INSERT [dbo].[Tutores] ([IdTutor], [Apellido], [Nombre], [Domicilio], [Cel]) VALUES (1, N'Gomez', N'Juan', N'Bolivar 333', N'154909090')
+GO
+INSERT [dbo].[Tutores] ([IdTutor], [Apellido], [Nombre], [Domicilio], [Cel]) VALUES (2, N'Romero', N'Andrea', N'Maipu 765', N'154808045')
+GO
+INSERT [dbo].[Tutores] ([IdTutor], [Apellido], [Nombre], [Domicilio], [Cel]) VALUES (3, N'Farias', N'Lujan', N'Av. Savio 1234', N'154767633')
+GO
+SET IDENTITY_INSERT [dbo].[Tutores] OFF
+GO
+ALTER TABLE [dbo].[Animales]  WITH CHECK ADD  CONSTRAINT [FK_Animales_Especies] FOREIGN KEY([IdEspecie])
+REFERENCES [dbo].[Especies] ([IdEspecie])
+GO
+ALTER TABLE [dbo].[Animales] CHECK CONSTRAINT [FK_Animales_Especies]
+GO
+ALTER TABLE [dbo].[Animales]  WITH CHECK ADD  CONSTRAINT [FK_Animales_Tutores] FOREIGN KEY([IdTutor])
+REFERENCES [dbo].[Tutores] ([IdTutor])
+GO
+ALTER TABLE [dbo].[Animales] CHECK CONSTRAINT [FK_Animales_Tutores]
+GO
+ALTER TABLE [dbo].[Intervenciones]  WITH CHECK ADD  CONSTRAINT [FK_Intervenciones_Animales] FOREIGN KEY([IdAnimal])
+REFERENCES [dbo].[Animales] ([IdAnimal])
+GO
+ALTER TABLE [dbo].[Intervenciones] CHECK CONSTRAINT [FK_Intervenciones_Animales]
+GO
+ALTER TABLE [dbo].[Intervenciones]  WITH CHECK ADD  CONSTRAINT [FK_Intervenciones_Doctores] FOREIGN KEY([IdDoctor])
+REFERENCES [dbo].[Doctores] ([IdDoctor])
+GO
+ALTER TABLE [dbo].[Intervenciones] CHECK CONSTRAINT [FK_Intervenciones_Doctores]
+GO
